@@ -15,7 +15,7 @@ void DeletePatient()
 {
     FILE *fp = NULL;
     FILE *ptr = NULL;
-    struct person patient; 
+    struct person patient;
     ptr = fopen("Patient_Records.txt", "r+");
     if (ptr == NULL)
     {
@@ -34,19 +34,28 @@ void DeletePatient()
             printf("Enter Patient id: ");
             scanf("%s", id);
             char holder[size];
-            while(fread(&patient,sizeof(struct person),1,ptr))
+            int checker = 0;
+            while (fread(&patient, sizeof(struct person), 1, ptr))
             {
-              if(strcmp(patient.id,id)!=0)
-              {
-                 fwrite(&patient,sizeof(struct person),1,fp);
-              }
-
+                if (strcmp(patient.id, id) != 0)
+                {
+                    fwrite(&patient, sizeof(struct person), 1, fp);
+                }
+                else if (strcmp(patient.id, id) == 0)
+                {
+                    checker = 1;
+                }
+            }
+            if (checker == 1)
+            {
+                total_record--;
             }
         }
         fclose(ptr);
         fclose(fp);
+
         remove("Patient_Records.txt");
-        rename("Copyfile.txt","Patient_Records.txt");
+        rename("Copyfile.txt", "Patient_Records.txt");
         printf("Deletion Done Succssefully.\n");
     }
 }
