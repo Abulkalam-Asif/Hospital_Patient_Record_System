@@ -23,7 +23,7 @@ void AddPatient()
 {
     FILE *ptr = NULL;
     struct Patient patient;
-    ptr = fopen("Patient_Records.txt", "a+");
+    ptr = fopen("Patient_Records.txt", "a");
     if (ptr == NULL)
     {
         printf("Could not open file.");
