@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include "AddPatient.h"
 #include "Delete_Patient.h"
-unsigned int total_record=0;
+#include "Update_Patient.h"
+unsigned int total_record = 0;
 int main()
 {
     printf("Welcome to Hospital Patient Record System!\n\n");
@@ -28,6 +29,8 @@ int main()
         case 2:
             DeletePatient();
             break;
+        case 3:
+             updatePatient();
         default:
             flag = 0;
             break;

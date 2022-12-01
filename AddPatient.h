@@ -48,6 +48,7 @@ void AddPatient()
         printf("Enter if patient is admitted: ");
         gets(patient.isadmitted);
         spaces(patient.isadmitted);
+        //rewind(ptr);
         fwrite(&patient, sizeof(struct Patient), 1, ptr);
         fclose(ptr);
         total_record++;
