@@ -28,7 +28,7 @@ void DisplayPatient()
         printf("All the records of all patients is following: \n");
         while (fread(&required, sizeof(struct display), 1, ptr))
         {
-            puts("-----------------------------------------\n");
+            puts("---------------------------------------------\n");
             printf("The Record of Patient %d is: \n\n",count);
             printf("Patient's ID: %s\n", required.id);
             printf("Patient's Name: %s\n", required.name);

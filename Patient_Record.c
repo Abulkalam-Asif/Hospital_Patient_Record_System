@@ -20,10 +20,9 @@ int main()
         fscanf(fp,"%u",&total_record);
     }
     fclose(fp);
-    printf("%u", total_record);
     while (flag)
     {
-        printf("1. Add Patient\n");
+        printf("\n1. Add Patient\n");
         printf("2. Delete Patient\n");
         printf("3. Update Patient\n");
         printf("4. Search Patient\n");
