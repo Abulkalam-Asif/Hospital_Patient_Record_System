@@ -37,6 +37,7 @@ void DisplayPatient()
             printf("Patient's disease: %s\n", required.disease);
             printf("Patient is admitted: %s\n", required.isadmitted);
             puts("--------------------------------------------\n");
+            count++;
         }
 
         fclose(ptr);
