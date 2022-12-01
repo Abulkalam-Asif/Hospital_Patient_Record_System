@@ -2,6 +2,7 @@
 #include "AddPatient.h"
 #include "Delete_Patient.h"
 #include "Update_Patient.h"
+#include "Search_Patient.h"
 unsigned int total_record = 0;
 int main()
 {
@@ -30,7 +31,9 @@ int main()
             DeletePatient();
             break;
         case 3:
-             updatePatient();
+            updatePatient();
+        case 4:
+            searchPatient();
         default:
             flag = 0;
             break;
