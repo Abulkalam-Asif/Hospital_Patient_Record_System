@@ -3,6 +3,7 @@
 #include "Delete_Patient.h"
 #include "Update_Patient.h"
 #include "Search_Patient.h"
+#include "Display_all_Patients.h"
 unsigned int total_record = 0;
 int main()
 {
@@ -34,8 +35,12 @@ int main()
             updatePatient();
         case 4:
             searchPatient();
-        default:
+        case 5:
+            DisplayPatient();
+        case 6:
             flag = 0;
+        default:
+            printf("Wrong input from Manu, Please try again.\n");
             break;
         }
     }
