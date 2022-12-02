@@ -40,7 +40,7 @@ int cnic_checker(char array[])
             }
         }
         char num = array[i];
-        if ((num >=48 && num<=57)|| num==45)
+        if ((num >= 48 && num <= 57) || num == 45)
         {
             check = 1;
         }
@@ -74,28 +74,27 @@ int repeat_check(char id[])
 {
     int check = 1;
     struct Patient p1;
-    FILE *fp= NULL;
-    fp= fopen("Patient_Records.txt","r");     
-        while (fread(&p1, sizeof(struct Patient), 1, fp))
+    FILE *fp = NULL;
+    fp = fopen("Patient_Records.txt", "r");
+    while (fread(&p1, sizeof(struct Patient), 1, fp))
+    {
+        if (strcmp(p1.id, id) == 0)
         {
-            if (strcmp(p1.id, id) == 0)
-            {
-                check = 0;
-                break;
-            }
+            check = 0;
+            break;
         }
-        fclose(fp);
-    
+    }
+    fclose(fp);
+
     return check;
 }
 int id_checker(char array[])
 {
     int check = 1;
-    int repeat=repeat_check(array);
-    if(repeat==0)
+    int repeat = repeat_check(array);
+    if (repeat == 0)
     {
-        printf("ID already Exists\n");
-        return 0;
+        return 2;
     }
     for (size_t i = 0; i < strlen(array); i++)
     {
@@ -125,6 +124,11 @@ struct Patient input(struct Patient patient)
         if (check == 0)
         {
             printf("Wrong input of ID. ID can only be an integer. Try again\n");
+            continue;
+        }
+        else if (check == 2)
+        {
+            printf("ID already Exists. Input Record again.\n");
             continue;
         }
         printf("Enter Patient name (In alphabets): ");
