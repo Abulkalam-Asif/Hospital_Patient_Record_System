@@ -29,21 +29,30 @@ void searchPatient()
         scanf("%s", id);
 
         char holder[size];
+        int checker = 0;
         while (fread(&patient, sizeof(struct record), 1, ptr))
         {
             if (strcmp(patient.id, id) == 0)
             {
                 required = patient;
+                checker = 1;
                 break;
             }
         }
-        printf("The Record of Patient with id %s is: \n",id);
-        printf("Patient's Name: %s\n", required.name);
-        printf("Patients CNIC: %s\n", required.cnic);
-        printf("Patient's Phone number: %s\n", required.phone);
-        printf("Patient's disease: %s\n", required.disease);
-        printf("Patient is admitted: %s\n", required.isadmitted);
-        fclose(ptr);
-        printf("Record Searched Succssefully.\n");
+        if (checker == 1)
+        {
+            printf("The Record of Patient with id %s is: \n", id);
+            printf("Patient's Name: %s\n", required.name);
+            printf("Patients CNIC: %s\n", required.cnic);
+            printf("Patient's Phone number: %s\n", required.phone);
+            printf("Patient's disease: %s\n", required.disease);
+            printf("Patient is admitted: %s\n", required.isadmitted);
+            fclose(ptr);
+            printf("Record Searched Succssefully.\n");
+        }
+        else if(checker==0)
+        {
+            printf("\nSorry! Record not found.\n");
+        }
     }
 }
